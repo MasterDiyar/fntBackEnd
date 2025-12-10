@@ -1,0 +1,12 @@
+
+.main{
+    display: grid;
+    background-color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    height: 30%;
+    width: 50%;
+    overflow: hidden;
+    margin: 100px auto;
+}

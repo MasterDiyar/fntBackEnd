@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WeightMeter</title>
+  <link rel="stylesheet" href="style/WeightMeter.css">
+</head>
+<body>
+
+<div class="main">
+  <h1>Weight Meter</h1>
+  <form action="/calculate" method="post">
+    <label id="wL"> weight:</label>
+    <input type="range" id="weight" name="weight" min="0" max="200" value="50">
+    <label id="hL"> height:</label>
+    <input type="range" id="meter" name="height" min="0" max="250" value="50">
+    <button type="submit">Calculate BMI</button>
+  </form>
+  <p>Value: <span id="valueBox">50</span></p>
+
+  <script src="script/WeightMeter.js"></script>
+</div>
+
+
+</body>
+</html>
