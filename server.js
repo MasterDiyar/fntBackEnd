@@ -2,20 +2,13 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-
-// Раздача статических файлов, если нужно
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "pages", "index.html"));
-});
+const fntRoutes = require("./routes/fntRouter");
+app.use("/", fntRoutes);
 
 app.listen(3000, () => {
     console.log("Server running on http://localhost:3000");
 });
-const fntRoutes = require("./routes/fntRouter");
-app.use("/", fntRoutes);
 
-app.get("/weight", (req, res) => {
-    res.sendFile(path.join(__dirname, "pages", "WeightMeter.html"));
-});

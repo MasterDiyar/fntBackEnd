@@ -14,5 +14,5 @@ exports.calculate = (req, res) => {
     else if (bmi < 29.9) category = "Overweight";
     else category = "Obese";
 
-    res.redirect(`/result.html?bmi=${bmi.toFixed(2)}&category=${category}`);
+    res.redirect(`/result?bmi=${bmi.toFixed(2)}&category=${category}`);
 };
