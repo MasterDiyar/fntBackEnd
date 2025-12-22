@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>RNG who read this?</title>
+    <link rel="stylesheet" href="style/ptice.css" />
+</head>
+<body>
+<div class="page">
+    <h1>Random User Dashboard</h1>
+
+    <button id="get-user-btn">Get Random User</button>
+
+    <div id="content" class="content hidden">
+        <section class="card user-card">
+            <h2>Welcome user</h2>
+            <div class="user-header">
+                <img id="user-img" class="avatar" alt="Profile picture" />
+                <div class="user-main">
+                    <div class="field">
+                        <span class="label">First name:</span>
+                        <span id="first-name"></span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Last name:</span>
+                        <span id="last-name"></span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Gender:</span>
+                        <span id="gender"></span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Age:</span>
+                        <span id="age"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-extra">
+                <div class="field">
+                    <span class="label">Date of birth:</span>
+                    <span id="dob"></span>
+                </div>
+                <div class="field">
+                    <span class="label">City:</span>
+                    <span id="city"></span>
+                </div>
+                <div class="field">
+                    <span class="label">Country:</span>
+                    <span id="country"></span>
+                </div>
+                <div class="field">
+                    <span class="label">Full address:</span>
+                    <span id="full-address"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="card country-card">
+            <h2>Country & Currency</h2>
+
+            <div class="country-header">
+                <img id="country-flag" class="country-flag" alt="Country flag" />
+                <div>
+                    <div class="field">
+                        <span class="label">Country:</span>
+                        <span id="country-name"></span>
+                    </div>
+                    <div class="field">
+                        <span class="label">Capital:</span>
+                        <span id="country-capital"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <span class="label">Languages:</span>
+                <span id="country-languages"></span>
+            </div>
+            <div class="field">
+                <span class="label">Currency:</span>
+                <span id="country-currencies"></span>
+            </div>
+
+            <div class="exchange">
+                <h3>Exchange rates</h3>
+                <p id="exchange-text">No data</p>
+            </div>
+        </section>
+
+        <section class="card news-card">
+            <h2>News</h2>
+            <div id="news-list" class="news-list"></div>
+        </section>
+    </div>
+</div>
+
+<script src="script/apiscript.js"></script>
+</body>
+</html>

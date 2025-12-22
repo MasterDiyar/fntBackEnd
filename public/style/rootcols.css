@@ -2,6 +2,6 @@
 :root{
     --obese: red;
     --overweight: orange;
-    --normal: yellow;
+    --normal: #808027;
     --underweight: lightyellow;
 }
