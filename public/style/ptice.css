@@ -28,12 +28,12 @@ button {
     cursor: pointer;
     border-radius: 6px;
     border: none;
-    background: #007bff;
+    background: lightgreen;
     color: #fff;
 }
 
 button:hover {
-    background: #0065d1;
+    background: yellowgreen;
 }
 
 .content.hidden {
@@ -144,7 +144,7 @@ button:hover {
 
 .news-link {
     font-size: 13px;
-    color: #007bff;
+    color: lightgreen;
     text-decoration: none;
 }
 
