@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog</title>
+
+  <link rel="stylesheet" href="style/WeightMeter.css">
+  <link rel="stylesheet" href="style/rootcols.css">
+  <link rel="stylesheet" href="style/blogs.css">
+</head>
+<body>
+
+<div class="main">
+  <div id="view-mode">
+    <h1 id="title"></h1>
+    <p id="body" class="body"></p>
+    <p class="author" id="author"></p>
+    <p class="date" id="date"></p>
+
+    <div class="controls">
+      <button onclick="toggleEdit()" class="edit-btn">Edit Post</button>
+      <button onclick="deletePost()" class="delete-btn" style="color: red;">Delete Post</button>
+    </div>
+  </div>
+
+  <div id="edit-mode" style="display: none;">
+    <h1>Edit Post</h1>
+    <form id="edit-form">
+      <input type="text" id="edit-title" placeholder="Title"><br>
+      <textarea id="edit-body" rows="10" style="width: 100%"></textarea><br>
+      <input type="text" id="edit-author" placeholder="Author"><br>
+      <button type="submit">Save Changes</button>
+      <button type="button" onclick="toggleEdit()">Cancel</button>
+    </form>
+  </div>
+
+  <br>
+  <a class="rb" href="/blogs-page">back</a>
+</div>
+</div>
+<script src="script/blog.js"></script>
+
+</body>
+</html>

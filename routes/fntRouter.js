@@ -24,5 +24,16 @@ router.get("/weight", (req, res) => {
     res.sendFile(path.join(__dirname, "../pages", "WeightMeter.html"));
 });
 
+router.get("/blogs-page", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages", "blogs.html"));
+});
+router.get("/create-blog", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages", "createBlog.html"));
+});
+
+router.get("/blog-page", (req, res) => {
+    res.sendFile(path.join(__dirname, "../pages", "blog.html"));
+});
+
 
 module.exports = router;

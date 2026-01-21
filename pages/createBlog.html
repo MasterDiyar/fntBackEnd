@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Blog</title>
+
+  <link rel="stylesheet" href="style/WeightMeter.css">
+  <link rel="stylesheet" href="style/rootcols.css">
+  <link rel="stylesheet" href="style/blogs.css">
+</head>
+<body>
+
+<div class="main">
+  <h1>Create Blog Post</h1>
+
+  <form id="blogForm" class="blog-form">
+    <input type="text" id="title" placeholder="Title" required />
+    <textarea id="body" placeholder="Body" required></textarea>
+    <input type="text" id="author" placeholder="Author (optional)" />
+
+    <button class="rb" type="submit">create</button>
+  </form>
+
+  <a class="rb" href="/blogs-page">back</a>
+</div>
+
+<script>
+  document.getElementById("blogForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+      title: title.value,
+      body: body.value,
+      author: author.value || undefined
+    };
+
+    const res = await fetch("/blogs", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    if (res.ok) {
+      window.location.href = "/blogs-page";
+    } else {
+      alert("Failed to create blog post");
+    }
+  });
+</script>
+
+</body>
+</html>

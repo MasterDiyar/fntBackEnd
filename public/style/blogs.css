@@ -1,0 +1,53 @@
+.blog-list {
+    width: 100%;
+    display: grid;
+    gap: 20px;
+}
+
+.blog-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px 20px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.blog-card:hover {
+    transform: scale(1.02);
+}
+
+.blog-card h2 {
+    margin: 0;
+    color: var(--normal);
+}
+
+.blog-card .body {
+    margin: 10px 0;
+}
+
+.blog-card .author {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.blog-card .date {
+    font-size: 0.85em;
+    opacity: 0.6;
+}
+.blog-form {
+    display: grid;
+    gap: 12px;
+    width: 100%;
+}
+
+.blog-form input,
+.blog-form textarea {
+    padding: 10px;
+    font-size: 1em;
+}
+
+.blog-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}

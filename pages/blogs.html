@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blogs</title>
+
+  <link rel="stylesheet" href="style/WeightMeter.css">
+  <link rel="stylesheet" href="style/rootcols.css">
+
+  <link rel="stylesheet" href="style/blogs.css">
+</head>
+<body>
+
+<div class="main">
+  <h1>Blog Posts</h1>
+
+  <div id="blogs" class="blog-list">
+  </div>
+
+  <a class="rb" href="/">back</a>
+  <a class="rb" href="/create-blog">new</a>
+</div>
+
+<script>
+  async function loadBlogs() {
+    try {
+      const res = await fetch("/blogs");
+      const blogs = await res.json();
+
+      const container = document.getElementById("blogs");
+      container.innerHTML = "";
+
+      blogs.forEach(blog => {
+        const el = document.createElement("div");
+        el.className = "blog-card";
+
+        el.innerHTML = `
+            <h2>${blog.title}</h2>
+            <p class="body">${blog.body.slice(0, 120)}...</p>
+            <p class="author">by ${blog.author}</p>
+            <a class="rb" href="/blog-page?id=${blog._id}">open</a>
+        `;
+
+
+        container.appendChild(el);
+      });
+    } catch (e) {
+      console.error("ERRRRRR", e);
+    }
+  }
+
+  loadBlogs();
+</script>
+
+</body>
+</html>

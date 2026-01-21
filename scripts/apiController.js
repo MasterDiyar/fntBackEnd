@@ -1,5 +1,5 @@
-const EXCHANGE_API_KEY = process.env.EXCHANGE_API_KEY;
-const NEWS_API_KEY = process.env.NEWS_API_KEY;
+const EXCHANGE_API_KEY = 'c14458a54c3aa5badd4d426c';
+const NEWS_API_KEY = 'aa26d4ae1c3643df8e2f5374f2fe8b37';
 async function getCountryInfoByName(countryName) {
     const url = `https://restcountries.com/v3.1/name/${encodeURIComponent(
         countryName
@@ -56,9 +56,9 @@ async function getExchangeRates(baseCurrencyCode) {
 
 async function getNewsByCountryName(countryName) {
     if (!countryName) return [];
-    const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(
+    const url = `https://newsapi.org/v2/everything?from=2025-12-01&q=${encodeURIComponent(
         countryName
-    )}&language=en&pageSize=5&apiKey=${NEWS_API_KEY}`;
+    )}&language=ru&pageSize=5&apiKey=${NEWS_API_KEY}`;
     const res = await fetch(url);
     const data = await res.json();
 
