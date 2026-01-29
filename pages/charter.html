@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Analytics</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<h2>Weather Time-Series Analysis</h2>
+
+<div id="controls">
+  <select id="fieldSelect">
+    <option value="field1">Temperature (Field 1)</option>
+    <option value="field2">Humidity (Field 2)</option>
+    <option value="field3">Pressure (Field 3)</option>
+  </select>
+  <input type="date" id="startDate">
+  <input type="date" id="endDate">
+  <button onclick="updateChart()">Visualize</button>
+</div>
+
+<div style="width: 800px;">
+  <canvas id="myChart"></canvas>
+</div>
+
+<div id="metrics">
+  <p>Avg: <span id="avg">-</span> | Max: <span id="max">-</span> | Min: <span id="min">-</span></p>
+</div>
+
+<script>
+  let myChart;
+
+  async function updateChart() {
+    const field = document.getElementById('fieldSelect').value;
+    const start = document.getElementById('startDate').value;
+    const end = document.getElementById('endDate').value;
+
+    const response = await fetch(`http://localhost:3000/measurments?field=${field}&start_date=${start}&end_date=${end}`);
+    const data = await response.json();
+
+    const mResponse = await fetch(`http://localhost:3000/measurments/metrics?field=${field}`);
+    const metrics = await mResponse.json();
+
+    if (metrics && metrics.avg !== undefined) {
+      document.getElementById('avg').innerText = metrics.avg.toFixed(2);
+      document.getElementById('max').innerText = metrics.max;
+      document.getElementById('min').innerText = metrics.min;
+    } else {
+      console.error("Метрики не получены или пусты");
+      document.getElementById('avg').innerText = "0.00";
+    }
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    if(myChart) myChart.destroy();
+
+    myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: data.map(d => new Date(d.timestamp).toLocaleTimeString()),
+        datasets: [{
+          label: field,
+          data: data.map(d => d[field]),
+          borderColor: 'rgb(75, 192, 192)'
+        }]
+      }
+    });
+  }
+</script>
+</body>
+</html>

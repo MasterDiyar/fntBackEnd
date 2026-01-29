@@ -17,6 +17,8 @@ const blogRouter = require("./routes/blogRouter");
 app.use("/blogs", blogRouter);
 const fntRoutes = require("./routes/fntRouter");
 app.use("/", fntRoutes);
+const analyticRoutes = require('./routes/analyticRouter');
+app.use('/measurments', analyticRoutes);
 
 app.listen(3000, () => {
     console.log("Server running on http://localhost:3000");
